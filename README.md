@@ -3,19 +3,19 @@
 ```
 route /api/
 ```
-
+## Root Page
 ```
-Root Page
 http://localhost:3000/
 Response: Hello World
 ```
+## Status Page
 ```
-Status Page
 http://localhost:3000/status
 Response:  Healthy: true
 ```
+## All Apps Page
 ```
-All Apps Page - http://localhost:3000/api/v1/apps
+http://localhost:3000/api/v1/apps
 Response:
   {
            "apps": [
@@ -69,14 +69,18 @@ Response:
                }
            ]
  }
- ```
- ```
- Single App Page - http://localhost:3000/api/v1/apps/1 - can change number to get a different single app
+```
+## Single App Page
+```
+ http://localhost:3000/api/v1/apps/1
  Response:
  {"apps":[{"id":"1"}]}
- ```
- ```
- All Users Page - http://localhost:3000/api/v1/users
+```
+## All Users Page
+
+```
+http://localhost:3000/api/v1/users
+
  Response:
  {
        "users": [
@@ -98,9 +102,10 @@ Response:
          }
        ]
  }
- ```
- ```
- Single User Page - http://localhost:3000/api/v1/users/1 - can change number to get a different single user
+```
+## Single User Page
+```
+ http://localhost:3000/api/v1/users/1
  Response:
  {"user":{"id":"1"}}
- ```
+```
