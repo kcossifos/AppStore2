@@ -1,11 +1,12 @@
 # AppStore2
 
+```
+route /api/
+```
+
 ## Install Dependencies
 ```
 npm install
-```
-```
-route /api/
 ```
 ## Root Page
 ```
@@ -106,7 +107,7 @@ GET : http://localhost:3000/api/v1/users
          }
        ]
  }
- 
+
 ```
 ## Single User Page
 ```
