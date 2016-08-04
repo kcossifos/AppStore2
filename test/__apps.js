@@ -2,8 +2,8 @@ const expect = require('chai').expect;
 const request = require('supertest');
 
 describe('App Routes', () => {
-  var server;
-  var app;
+  let server;
+  let app;
 
   beforeEach(() => {
 		server = require('../src/server.js');

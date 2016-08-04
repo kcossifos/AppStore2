@@ -8,6 +8,15 @@ route /api/
 ```
 npm install
 ```
+#Install all Command line tools
+```
+npm install -g mocha
+```
+## Start Server
+```
+npm start
+```
+
 ## Root Page
 ```
 GET : http://localhost:3000/
