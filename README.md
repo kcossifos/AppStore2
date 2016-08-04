@@ -1,21 +1,25 @@
 # AppStore2
 
+## Install Dependencies
+```
+npm install
+```
 ```
 route /api/
 ```
 ## Root Page
 ```
-http://localhost:3000/
+GET : http://localhost:3000/
 Response: Hello World
 ```
 ## Status Page
 ```
-http://localhost:3000/status
+GET : http://localhost:3000/status
 Response:  Healthy: true
 ```
 ## All Apps Page
 ```
-http://localhost:3000/api/v1/apps
+GET : http://localhost:3000/api/v1/apps
 Response:
   {
            "apps": [
@@ -72,14 +76,14 @@ Response:
 ```
 ## Single App Page
 ```
- http://localhost:3000/api/v1/apps/1
+ GET : http://localhost:3000/api/v1/apps/1
  Response:
  {"apps":[{"id":"1"}]}
 ```
 ## All Users Page
 
 ```
-http://localhost:3000/api/v1/users
+GET : http://localhost:3000/api/v1/users
 
  Response:
  {
@@ -102,10 +106,11 @@ http://localhost:3000/api/v1/users
          }
        ]
  }
+ 
 ```
 ## Single User Page
 ```
- http://localhost:3000/api/v1/users/1
+ GET : http://localhost:3000/api/v1/users/1
  Response:
  {"user":{"id":"1"}}
 ```
