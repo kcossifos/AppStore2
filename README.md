@@ -1,9 +1,5 @@
 # AppStore2
 
-```
-route /api/
-```
-
 ## Install Dependencies
 ```
 npm install
