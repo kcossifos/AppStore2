@@ -1,35 +1,38 @@
 # AppStore2
 
 ## Install Dependencies
-```
 To install dependencies needed for this static api use
-__ npm install __
 ```
-##Install all Command line tools
+npm install
+```
+## Install all Command line tools
 ```
 npm install -g mocha
 ```
 ## Start Server
+To start the server on port 3000 use
 ```
-Start the server on port 3000 use
-**npm start**
+npm start
 ```
 
 ## Root Page
-```
-GET : http://localhost:3000/
-Response: Hello World
-```
-## Status Page
-```
-GET : /status
-Response:  Healthy: true
-```
-## All Apps Page
-```
-To get all apps
 
-GET : /api/v1/apps
+| Method | URL | Response |
+|----|----|----|
+| GET | / | Hello World |
+
+## Status Page
+
+| Method | URL | Response |
+|----|----|----|
+| GET | /status | Healthy: true
+
+## All Apps Page
+
+To get all apps in the static api
+```
+Method: GET
+URL: /api/v1/apps
 Response:
   {
            "apps": [
@@ -85,20 +88,19 @@ Response:
  }
 ```
 ## Single App Page
-```
- To get a single app
+To get a single app
 
- GET : /api/v1/apps/1
- Response: {"apps":[{"id":"1"}]}
-```
+| Method | URL | Response |
+|----|----|----|
+| GET | /api/v1/apps/1 | {"app":{"id":"1","title":"Best App-Store in the Universe","description":"A fast paced side scrolling shooter","releaseDate":"2016-06-15T22:29:20.000Z"}} |
+
 ## All Users Page
 
+To get all users in the static api
 ```
-To get all users
-
-GET : /api/v1/users
-
- Response:
+Method: GET
+URL: /api/v1/users
+Response:
  {
        "users": [
          {
@@ -122,10 +124,8 @@ GET : /api/v1/users
 
 ```
 ## Single User Page
-```
  To get a single user
 
- GET : /api/v1/users/1
-
- Response: {"user":{"id":"1"}}
-```
+| Method | URL | Response |
+|----|----|----|
+| GET | /api/v1/users/1 | {"user":{"id":"1","name":"Kelsey"}} |
