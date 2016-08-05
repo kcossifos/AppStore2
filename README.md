@@ -130,7 +130,8 @@ Response:
 ```
 ## Single User Page
  To get a single user
-
-| Method | URL | Response |
-|----|----|----|
-| GET | /api/v1/users/1 | {"user":{"id":"1","name":"Kelsey"}} |
+```
+Method: GET
+URL: /api/v1/users/1
+Response: { "user": { "id":"1", "name":"Kelsey" }} 
+```
