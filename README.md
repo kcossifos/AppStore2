@@ -2,7 +2,8 @@
 
 ## Install Dependencies
 ```
-npm install
+To install dependencies needed for this static api use
+**npm install**
 ```
 ##Install all Command line tools
 ```
@@ -10,7 +11,8 @@ npm install -g mocha
 ```
 ## Start Server
 ```
-npm start
+Start the server on port 3000 use
+**npm start**
 ```
 
 ## Root Page
@@ -20,12 +22,14 @@ Response: Hello World
 ```
 ## Status Page
 ```
-GET : http://localhost:3000/status
+GET : /status
 Response:  Healthy: true
 ```
 ## All Apps Page
 ```
-GET : http://localhost:3000/api/v1/apps
+To get all apps
+
+GET : /api/v1/apps
 Response:
   {
            "apps": [
@@ -82,14 +86,17 @@ Response:
 ```
 ## Single App Page
 ```
- GET : http://localhost:3000/api/v1/apps/1
- Response:
- {"apps":[{"id":"1"}]}
+ To get a single app
+
+ GET : /api/v1/apps/1
+ Response: {"apps":[{"id":"1"}]}
 ```
 ## All Users Page
 
 ```
-GET : http://localhost:3000/api/v1/users
+To get all users
+
+GET : /api/v1/users
 
  Response:
  {
@@ -116,7 +123,9 @@ GET : http://localhost:3000/api/v1/users
 ```
 ## Single User Page
 ```
- GET : http://localhost:3000/api/v1/users/1
- Response:
- {"user":{"id":"1"}}
+ To get a single user
+
+ GET : /api/v1/users/1
+
+ Response: {"user":{"id":"1"}}
 ```
