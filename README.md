@@ -89,10 +89,11 @@ Response:
 ```
 ## Single App Page
 To get a single app
-
-| Method | URL | Response |
-|----|----|----|
-| GET | /api/v1/apps/1 | {"app":{"id":"1","title":"Best App-Store in the Universe","description":"A fast paced side scrolling shooter","releaseDate":"2016-06-15T22:29:20.000Z"}} |
+```
+Method: GET
+URL: /api/v1/apps/1
+Response: {"app":{"id":"1","title":"Best App-Store in the Universe","description":"A fast paced side scrolling shooter","releaseDate":"2016-06-15T22:29:20.000Z"}}
+```
 
 ## All Users Page
 
