@@ -92,7 +92,11 @@ To get a single app
 ```
 Method: GET
 URL: /api/v1/apps/1
-Response: {"app":{"id":"1","title":"Best App-Store in the Universe","description":"A fast paced side scrolling shooter","releaseDate":"2016-06-15T22:29:20.000Z"}}
+Response:
+{ "app": { "id": "1",
+"title": "Best App-Store in the Universe",
+"description": "A fast paced side scrolling shooter",
+"releaseDate": "2016-06-15T22:29:20.000Z"}}
 ```
 
 ## All Users Page
