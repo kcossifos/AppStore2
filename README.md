@@ -3,7 +3,7 @@
 ## Install Dependencies
 ```
 To install dependencies needed for this static api use
-__npm install__
+__ npm install __
 ```
 ##Install all Command line tools
 ```
