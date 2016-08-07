@@ -1,5 +1,5 @@
 # AppStore2
-Dynamic API that allows to create, update, and delete using Node and Express.
+Dynamic API that allows you to create, update, and delete using Node and Express.
 
 ## Install Dependencies
 To install dependencies needed for this static api use
