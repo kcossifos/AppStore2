@@ -51,15 +51,5 @@ router.post('/v1/apps', (req, res) =>{
 	});
 });
 
-// //Gets the relationship between the user id  and their apps
-// 	router.get('/v1/users/:id/apps', (req,res) => {
-// 		req.body.id = req.params.id;
-// 	 app.all(req.body, (err) => {
-// 		 res.status(500).json(err);
-// 	 }, (data) => {
-// 		 res.status(200).json(data);
-// 	 });
-// });
-
 return router;
 }
