@@ -10,7 +10,7 @@ module.exports = (express) => {
   });
 
   router.get('/', (req, res) => {
-    res.json('Check out this app');
+    res.json('Check out this dynamic api');
   });
 
 // creates route

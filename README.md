@@ -1,4 +1,5 @@
 # AppStore2
+Dynamic API that allows to create, update, and delete using Node and Express.
 
 ## Install Dependencies
 To install dependencies needed for this static api use
@@ -8,6 +9,26 @@ npm install
 ## Install all Command line tools
 ```
 npm install -g mocha
+```
+## Create your Database
+This  dynamic api is using MySQL
+```
+1) Make sure you have MySQL installed, if not in your terminal run the command brew install mysql
+2) Once that is installed to run MySQL server, run the command mysql.server start in your terminal
+3) Create a database
+```
+
+## Database configuration
+Create a .env file and insert the information
+to connect to your database
+```
+DB_NAME =
+DB_USER =
+DB_PASS =
+DB_HOST =
+DB_SCHEMA =
+DB_PORT =
+
 ```
 ## Start Server
 To start the server on port 3000 use
@@ -19,7 +40,7 @@ npm start
 
 | Method | URL | Response |
 |----|----|----|
-| GET | / | Hello World |
+| GET | / | Check out this dynamic api|
 
 ## Status Page
 
@@ -27,9 +48,25 @@ npm start
 |----|----|----|
 | GET | /status | Healthy: true
 
-## All Apps Page
-
-To get all apps in the static api
+## Create an App
+To create an app in the dynamic api
+```
+Method: POST
+URL: /v1/apps
+Response:
+{
+  "id": 20,
+  "userId": null,
+  "title": "Best New Test App",
+  "description": "none",
+  "artAssets": null,
+  "releaseDate": null,
+  "createdAt": "2016-08-07T21:09:00.000Z",
+  "updatedAt": "2016-08-07T21:09:00.000Z"
+}
+```
+## Read all Apps
+To get all apps in the dynamic api
 ```
 Method: GET
 URL: /api/v1/apps
@@ -86,9 +123,10 @@ Response:
                }
            ]
  }
+
 ```
-## Single App Page
-To get a single app
+## Read a single App
+To get a single app in the dynamic api
 ```
 Method: GET
 URL: /api/v1/apps/1
@@ -98,10 +136,62 @@ Response:
 "description": "A fast paced side scrolling shooter",
 "releaseDate": "2016-06-15T22:29:20.000Z"}}
 ```
+## Update an App
+To update a specific app by id that was previously created
+```
+Method: POST
+URL: /v1/apps/:id
+Response: {
+  "id": 20,
+  "userId": 10,
+  "title": "Test App has been updated"
+  "description": "Dynamic API",
+  "artAssets": www.linkunknown.idk,
+  "releaseDate": "2016-08-07T21:09:00.000",
+  "createdAt": "2016-08-07T21:09:00.000Z",
+  "updatedAt": "2016-08-07T21:09:00.000Z"
+}
+```
+## Delete an app
+To delete a specific app by id that was previously created
+```
+Method: DELETE
+URL: /v1/apps/:id
+Response: 1 (which means the app was successfully deleted)
+Getting the response of a zero means the app was not deleted
+or their is no app by that id number
+```
 
-## All Users Page
-
-To get all users in the static api
+## Create a User
+To create a user in the dynamic api
+```
+Method: POST
+URL: /v1/users
+Response:
+{
+  "id": 22,
+  "updatedAt": "2016-08-07T21:26:43.000Z",
+  "createdAt": "2016-08-07T21:26:43.000Z"
+}
+```
+## Update a User
+To update a user by id that was previously created
+```
+Method: POST
+URL: /v1/users/:id
+Response:
+{
+  "id": 22,
+  "name": Kelsey,
+  "createdAt": "2016-08-07T21:26:43.000Z",
+  "updatedAt": "2016-08-07T21:26:43.000Z",
+  "apps": []
+}
+(the "apps" returns an empty array because
+this user has no apps associated with its userId)
+```
+## Read All Users
+To get all users in the dynamic api
 ```
 Method: GET
 URL: /api/v1/users
@@ -128,10 +218,20 @@ Response:
  }
 
 ```
-## Single User Page
- To get a single user
+## Read a Single User
+To get a single user in the dynamic api
 ```
 Method: GET
 URL: /api/v1/users/1
-Response: { "user": { "id":"1", "name":"Kelsey" }} 
+Response: { "user": { "id":"1", "name":"Kelsey" }}
+```
+
+## Delete a User
+To delete a user by id that was previously created
+```
+Method: DELETE
+URL: /v1/users/:id
+Response: 1 (which means the user was successfully deleted)
+Getting the response of a zero means the user was not deleted
+or their is no user by that id number
 ```
