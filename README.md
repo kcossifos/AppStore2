@@ -244,7 +244,6 @@ and the apps associated with their id number
 Method: GET
 URL: /v1/users/:id/apps
 Response:
-```
 [
   {
     "id": 2,
