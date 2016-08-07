@@ -49,7 +49,7 @@ npm start
 | GET | /status | Healthy: true
 
 ## Create an App
-To create an app in the dynamic api
+To create an app
 ```
 Method: POST
 URL: /v1/apps
@@ -66,7 +66,7 @@ Response:
 }
 ```
 ## Read all Apps
-To get all apps in the dynamic api
+To get all apps
 ```
 Method: GET
 URL: /api/v1/apps
@@ -126,7 +126,7 @@ Response:
 
 ```
 ## Read a single App
-To get a single app in the dynamic api
+To get a single app
 ```
 Method: GET
 URL: /api/v1/apps/1
@@ -141,7 +141,8 @@ To update a specific app by id that was previously created
 ```
 Method: POST
 URL: /v1/apps/:id
-Response: {
+Response:
+{
   "id": 20,
   "userId": 10,
   "title": "Test App has been updated"
@@ -163,7 +164,7 @@ or their is no app by that id number
 ```
 
 ## Create a User
-To create a user in the dynamic api
+To create a user
 ```
 Method: POST
 URL: /v1/users
@@ -191,7 +192,7 @@ Response:
 this user has no apps associated with its userId)
 ```
 ## Read All Users
-To get all users in the dynamic api
+To get all users
 ```
 Method: GET
 URL: /api/v1/users
@@ -219,7 +220,7 @@ Response:
 
 ```
 ## Read a Single User
-To get a single user in the dynamic api
+To get a single user
 ```
 Method: GET
 URL: /api/v1/users/1
@@ -234,4 +235,36 @@ URL: /v1/users/:id
 Response: 1 (which means the user was successfully deleted)
 Getting the response of a zero means the user was not deleted
 or their is no user by that id number
+```
+
+## Read a User and their apps
+To get the relationship between the user id
+and the apps associated with their id number
+```
+Method: GET
+URL: /v1/users/:id/apps
+Response:
+```
+[
+  {
+    "id": 2,
+    "userId": 2,
+    "title": "new app",
+    "description": "api",
+    "artAssets": "www",
+    "releaseDate": 2016,
+    "createdAt": "2016-08-07T21:26:43.000Z",
+    "updatedAt": "2016-08-07T21:26:43.000Z"
+  },
+  {
+    "id": 3,
+    "userId": 2,
+    "title": "new",
+    "description": "none",
+    "artAssets": "hi",
+    "releaseDate": 2222,
+    "createdAt": null,
+    "updatedAt": null
+  }
+]
 ```

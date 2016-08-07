@@ -54,10 +54,10 @@ router.post('/v1/users', (req, res) =>{
 //Gets the relationship between the user id  and their apps
 	router.get('/v1/users/:id/apps', (req,res) => {
 		req.body.id = req.params.id;
-	 user.all(req.body, (err) => {
+	 user.one(req.body, (err) => {
 		 res.status(500).json(err);
 	 }, (data) => {
-		 res.status(200).json(data);
+		 res.status(200).json(data.apps);
 	 });
 	});
 
