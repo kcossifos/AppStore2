@@ -1,8 +1,16 @@
 # AppStore2
 Dynamic API that allows you to create, update, and delete using Node and Express.
 
+## Getting Started
+```
+First make sure you have node installed on your computer.
+If you do not run open up your terminal and run the command brew install node.
+If you already have node on your computer make sure it is up to date by running the command node-v.
+If you do not have the latest update run the command brew update.
+Now clone this repository to get started by typing git clone https://github.com/kcossifos/AppStore2.git
+```
 ## Install Dependencies
-To install dependencies needed for this static api use
+To install dependencies needed for this dynamic api use
 ```
 npm install
 ```
@@ -11,7 +19,7 @@ npm install
 npm install -g mocha
 ```
 ## Create your Database
-This  dynamic api is using MySQL
+This dynamic api is using MySQL
 ```
 1) Make sure you have MySQL installed, if not in your terminal run the command brew install mysql
 2) Once that is installed to run MySQL server, run the command mysql.server start in your terminal
