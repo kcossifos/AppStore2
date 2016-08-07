@@ -125,7 +125,7 @@ Response:
  }
 
 ```
-## Read a single App
+## Read a Single App
 To get a single app
 ```
 Method: GET
@@ -153,7 +153,7 @@ Response:
   "updatedAt": "2016-08-07T21:09:00.000Z"
 }
 ```
-## Delete an app
+## Delete an App
 To delete a specific app by id that was previously created
 ```
 Method: DELETE
@@ -191,7 +191,7 @@ Response:
 (the "apps" returns an empty array because
 this user has no apps associated with its userId)
 ```
-## Read All Users
+## Read all Users
 To get all users
 ```
 Method: GET
@@ -237,7 +237,7 @@ Getting the response of a zero means the user was not deleted
 or their is no user by that id number
 ```
 
-## Read a User and their apps
+## Read all of a Users Apps
 To get the relationship between the user id
 and the apps associated with their id number
 ```
