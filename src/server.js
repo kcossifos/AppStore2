@@ -1,16 +1,21 @@
 const express = require('express');
-const body_parser = require('body-parser');
+const bodyParser = require('body-parser');
 const app = express();
 
-//port used for the app
-const port = 3000;
+// port used for the app
+const port = process.env.PORT || 3000;
 
-//App is required to use /routes/index
-require('./routes/index')(app);
 
-//App listens to which port the server is on
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true,
+}));
+
+app.use('/', require('./routes')(express));
+
+// listens to the port server
 const server = app.listen(port, () => {
-	console.log('Server on', port);
+  	console.log('Server Active On', port);
 });
 
 module.exports = server;

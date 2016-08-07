@@ -2,16 +2,16 @@ const expect = require('chai').expect;
 const request = require('supertest');
 
 describe('App Routes', () => {
-  let server;
-  let app;
+  var server;
+  var app;
 
   beforeEach(() => {
-		server = require('../src/server.js');
-	});
+    server = require('../src/server.js');
+  });
 
-	afterEach(() => {
-		server.close();
-	});
+  afterEach(() => {
+    server.close();
+  });
 
   // Test for Multiple Apps
   it('GET /api/v1/apps returns multiple apps', (done) => {
@@ -20,7 +20,7 @@ describe('App Routes', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const apps = res.body.apps;
+        const apps = res.body;
 
         // Save one single app from the list to test on in later tests
         this.app = apps[0]
@@ -37,11 +37,10 @@ describe('App Routes', () => {
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
-        const app = res.body.app;
+        const app = res.body;
         expect(app).to.have.property('id')
         expect(app).to.have.property('title')
         expect(app).to.have.property('description')
-        expect(app).to.have.property('releaseDate')
       })
       .end(done)
   });

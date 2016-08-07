@@ -4,7 +4,7 @@
   "description": "App API",
   "main": "index.js",
   "scripts": {
-    "start" : "node src/server.js",
+    "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,12 @@
     "chai": "^3.5.0",
     "express": "^4.14.0",
     "mocha": "^3.0.1",
+    "mysql": "^2.11.1",
+    "sequelize": "^3.23.6",
     "supertest": "^2.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^2.0.0",
+    "faker": "^3.1.0"
   }
 }

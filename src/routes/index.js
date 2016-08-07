@@ -1,7 +1,20 @@
-module.exports = (app) => {
+module.exports = (express) => {
+  const router = express.Router();
 
-  app.use('/', require('./api/v1/index'));
-  app.use('/api/v1/', require('./api/v1/users'));
-  app.use('/api/v1/', require('./api/v1/apps'));
+// checks status
+  router.get('/status', (req, res) => {
+    console.log('route hit', req.body);
+    res.json({
+      healthy: true,
+    });
+  });
 
-}
+  router.get('/', (req, res) => {
+    res.json('Check out this app');
+  });
+
+// creates route
+  router.use('/api/', require('./api/v1/users')(express));
+  router.use('/api/', require('./api/v1/apps')(express));
+  return router;
+};

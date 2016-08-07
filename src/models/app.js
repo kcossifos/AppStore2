@@ -1,0 +1,44 @@
+const db = require('../models/db');
+
+//allows an app to be created
+exports.add = (payload, err, success) => {
+	db.app.create(payload).then(success).catch(err);
+}
+
+//allows to find all apps
+exports.all = (err, success) => {
+	db.app.findAll().then(success).catch(err);
+}
+
+//allows to find one app
+exports.one = (payload, err, success) => {
+	db.app.find({
+		where: {
+			id: payload.id,
+		},
+		include: [{
+			all: true,
+			nested: true,
+		}],
+	}).then(success).catch(err);
+}
+
+//allows an app to be updated
+exports.update = (payload, err, success) => {
+	db.app.find({
+		where: {
+			id: payload.id,
+		}
+	}).then((existingData) => {
+		existingData.updateAttributes(payload).then(success).catch(err);
+	}).catch(err);
+}
+
+//allows an app to be deleted
+exports.remove = (payload, err, success) => {
+	db.app.destroy({
+		where: {
+			id: payload.id,
+		}
+	}).then(success).catch(err);
+}

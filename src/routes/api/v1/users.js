@@ -1,34 +1,65 @@
-var express = require('express');
+const user = require('../../../models/user');
+
+module.exports = (express) => {
 	const router = express.Router();
 
-  //gets all users information
-  router.get('/users/', function (req , res){
-    res.json({
-      "users": [
-        {
-          "id": "1",
-          "name": "Kelsey"
-        },
-        {
-          "id": "2",
-          "name": "Shrub"
-        },
-        {
-          "id": "3",
-          "name": "Kah"
-        },
-        {
-          "id": "4",
-          "name": "Kev"
-        }
-      ]
-    });
-  });
+//deletes a user
+router.delete('/v1/users/:id', (req, res) => {
+	req.body.id = req.params.id;
+	user.dre(req.body, (err) => {
+		res.status(500).json(err);
+	}, (data) =>{
+		res.status(200).json(data);
+	});
+});
 
-  	//gets a single user
-	router.get('/users/:id',function(req,res){
-		res.json({user: {id: req.params.id, name: "Kelsey" }});
+//Creates a user
+router.post('/v1/users', (req, res) =>{
+	user.add(req.body, (err) =>{
+		res.status(500).json(err);
+	}, (data) => {
+		res.status(200).json(data);
+	})
+});
+
+// Gets all users
+	router.get('/v1/users', (req,res) => {
+		user.all((err) => {
+			res.status(500).json(err);
+		}, (data) => {
+			res.status(200).json(data);
+		})
 	});
 
+// Gets a user by id
+	router.get('/v1/users/:id', (req,res) => {
+		req.body.id = req.params.id;
+		user.one(req.body, (err) => {
+			res.status(500).json(err);
+		}, (data) => {
+			res.status(200).json(data);
+		})
+	});
 
-module.exports = router;
+// Updates a user
+	router.post('/v1/users/:id', (req, res) => {
+		req.body.id = req.params.id;
+		user.update(req.body, (err) => {
+			res.status(500).json(err);
+		}, (data) =>{
+			res.status(200).json(data);
+		})
+	});
+
+//Gets the relationship between the user id  and their apps
+	router.get('/v1/users/:id/apps', (req,res) => {
+		req.body.id = req.params.id;
+	 user.all(req.body, (err) => {
+		 res.status(500).json(err);
+	 }, (data) => {
+		 res.status(200).json(data);
+	 });
+	});
+
+	return router;
+}
