@@ -4,7 +4,7 @@ Dynamic API that allows you to create, update, and delete using Node and Express
 ## Getting Started
 ```
 First make sure you have node installed on your computer.
-If you do not run open up your terminal and run the command brew install node.
+If you do not open up your terminal and run the command brew install node.
 If you already have node on your computer make sure it is up to date by running the command node-v.
 If you do not have the latest update run the command brew update.
 Now clone this repository to get started by typing git clone https://github.com/kcossifos/AppStore2.git
