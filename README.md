@@ -28,7 +28,6 @@ DB_PASS =
 DB_HOST =
 DB_SCHEMA =
 DB_PORT =
-
 ```
 ## Start Server
 To start the server on port 3000 use
