@@ -23,7 +23,10 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "chai": "^3.5.0",
+    "colors": "^1.1.2",
+    "dateformat": "^1.0.12",
     "express": "^4.14.0",
+    "format": "^0.2.2",
     "mocha": "^3.0.1",
     "mysql": "^2.11.1",
     "sequelize": "^3.23.6",

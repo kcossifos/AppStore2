@@ -62,14 +62,18 @@ Method: POST
 URL: /v1/apps
 Response:
 {
-  "id": 20,
-  "userId": null,
-  "title": "Best New Test App",
-  "description": "none",
-  "artAssets": null,
-  "releaseDate": null,
-  "createdAt": "2016-08-07T21:09:00.000Z",
-  "updatedAt": "2016-08-07T21:09:00.000Z"
+  "id": 2,
+  "userId": 3,
+  "title": "Best App-Store in Florida",
+  "description": "A fast paced app",
+  "artAssets":
+  [
+    { "title": "Splash Screen", "srcLink": "http://i.imgur.com/5e5Ihb6.jpg" },
+    { "title": "Cut Scene", "srcLink": "http://i.imgur.com/QQ3O6PO.jpg" }
+  ],
+  "releaseDate": "2016-06-15T22:29:20.000Z",
+  "createdAt": "2016-05-15T22:29:20.000Z",
+  "updatedAt": "2016-05-15T22:29:20.000Z"
 }
 ```
 ## Read all Apps
@@ -81,7 +85,8 @@ Response:
   {
            "apps": [
                {
-                 "id": "0032c47b-4a7b-4232-9cc3-6af718244ea8",
+                 "id": 2,
+                 "userId": 3,
                  "title": "Best App-Store in Florida",
                  "description": "A fast paced app",
                  "artAssets": [
@@ -92,12 +97,13 @@ Response:
                  "createdAt": "2016-05-15T22:29:20.000Z",
                  "updatedAt": "2016-05-15T22:29:20.000Z",
                  "user": {
-                   "id": "ae25e5a4-73db-4969-9f6c-acf8246b7faa",
+                   "id": 3,
                    "name": "Kelsey"
                  }
                },
                {
-                 "id": "0032c47b-4a7b-4232-9cc3-6af718244ea8",
+                 "id": 4,
+                 "userId": 5,
                  "title": "Best App-Store in the World",
                  "description": "A fast paced app store on the east",
                  "artAssets": [
@@ -108,12 +114,13 @@ Response:
                  "createdAt": "2016-05-15T22:29:20.000Z",
                  "updatedAt": "2016-05-15T22:29:20.000Z",
                  "user": {
-                   "id": "ae25e5a4-73db-4969-9f6c-acf8246b7faa",
+                   "id": 5,
                    "name": "Shrub"
                  }
                },
                {
-                 "id": "0032c47b-4a7b-4232-9cc3-6af718244ea8",
+                 "id": 5,
+                 "userId": 6,
                  "title": "Best App-Store in the Universe",
                  "description": "A fast paced side scrolling shooter",
                  "artAssets": [
@@ -124,7 +131,7 @@ Response:
                  "createdAt": "2016-05-15T22:29:20.000Z",
                  "updatedAt": "2016-05-15T22:29:20.000Z",
                  "user": {
-                   "id": "ae25e5a4-73db-4969-9f6c-acf8246b7faa",
+                   "id": 6,
                    "name": "Kah"
                  }
                }
@@ -178,6 +185,7 @@ URL: /v1/users
 Response:
 {
   "id": 22,
+  "name" : Kelsey,
   "updatedAt": "2016-08-07T21:26:43.000Z",
   "createdAt": "2016-08-07T21:26:43.000Z"
 }
@@ -207,19 +215,19 @@ Response:
  {
        "users": [
          {
-           "id": "1",
+           "id": 1,
            "name": "Kelsey"
          },
          {
-           "id": "2",
+           "id": 2,
            "name": "Shrub"
          },
          {
-           "id": "3",
+           "id": 3,
            "name": "Kah"
          },
          {
-           "id": "4",
+           "id": 4,
            "name": "Kev"
          }
        ]
@@ -231,7 +239,7 @@ To get a single user
 ```
 Method: GET
 URL: /api/v1/users/1
-Response: { "user": { "id":"1", "name":"Kelsey" }}
+Response: { "user": { "id": 2, "name":"Kelsey" }}
 ```
 
 ## Delete a User
@@ -269,8 +277,8 @@ Response:
     "description": "none",
     "artAssets": "hi",
     "releaseDate": 2222,
-    "createdAt": null,
-    "updatedAt": null
+    "createdAt": "2016-08-07T21:26:43.000Z",
+    "updatedAt": "2016-08-07T21:26:43.000Z"
   }
 ]
 ```

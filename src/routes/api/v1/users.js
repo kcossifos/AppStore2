@@ -1,4 +1,5 @@
 const user = require('../../../models/user');
+const util = require('../../../../lib/util');
 
 module.exports = (express) => {
 	const router = express.Router();
@@ -8,8 +9,10 @@ router.delete('/v1/users/:id', (req, res) => {
 	req.body.id = req.params.id;
 	user.dre(req.body, (err) => {
 		res.status(500).json(err);
+		util.debug('DELETE/v1/users/' + req.body.id, req.params.id, 500);
 	}, (data) =>{
 		res.status(200).json(data);
+		util.debug('DELETE/v1/users' + req.body.id, req.params.id, 200);
 	});
 });
 
@@ -17,8 +20,10 @@ router.delete('/v1/users/:id', (req, res) => {
 router.post('/v1/users', (req, res) =>{
 	user.add(req.body, (err) =>{
 		res.status(500).json(err);
+		util.debug('POST/v1/users', req.body, 500);
 	}, (data) => {
 		res.status(200).json(data);
+		util.debug('POST/v1/users', req.body, 200);
 	})
 });
 
@@ -26,8 +31,10 @@ router.post('/v1/users', (req, res) =>{
 	router.get('/v1/users', (req,res) => {
 		user.all((err) => {
 			res.status(500).json(err);
+			 util.debug('GET/v1/users', req.body, 500);
 		}, (data) => {
 			res.status(200).json(data);
+			util.debug('GET/v1/users', req.body, 200);
 		})
 	});
 
@@ -36,8 +43,10 @@ router.post('/v1/users', (req, res) =>{
 		req.body.id = req.params.id;
 		user.one(req.body, (err) => {
 			res.status(500).json(err);
+			util.debug('GET/v1/users' + req.body.id, req.params.id, 500);
 		}, (data) => {
 			res.status(200).json(data);
+			util.debug('GET/v1/users' + req.body.id, req.params.id, 200);
 		})
 	});
 
@@ -46,8 +55,10 @@ router.post('/v1/users', (req, res) =>{
 		req.body.id = req.params.id;
 		user.update(req.body, (err) => {
 			res.status(500).json(err);
+			util.debug('POST/v1/users' + req.body.id, req.params.id, 500);
 		}, (data) =>{
 			res.status(200).json(data);
+			util.debug('POST/v1/users' + req.body.id, req.params.id, 200);
 		})
 	});
 
@@ -56,8 +67,10 @@ router.post('/v1/users', (req, res) =>{
 		req.body.id = req.params.id;
 	 user.one(req.body, (err) => {
 		 res.status(500).json(err);
+		 util.debug('GET/v1/users/:id/apps' + req.body.id, req.params.id, 500);
 	 }, (data) => {
 		 res.status(200).json(data.apps);
+		 util.debug('GET/v1/users/:id/apps' + req.body.id, req.params.id, 200);
 	 });
 	});
 
