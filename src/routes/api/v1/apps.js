@@ -20,7 +20,7 @@ router.get('/v1/apps/:id', (req, res) => {
 	req.body.id = req.params.id;
 	app.one(req.body, (err) => {
 		res.status(500).json(err);
-		util.debug('GET/v1/apps/' req.body.id, req.params.id, 500);
+		util.debug('GET/v1/apps/' + req.body.id, req.params.id, 500);
 	}, (data) =>{
 		res.status(200).json(data);
 		util.debug('GET/v1/apps/' + req.body.id, req.params.id, 200);

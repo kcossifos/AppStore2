@@ -37,10 +37,21 @@ DB_HOST =
 DB_SCHEMA =
 DB_PORT =
 ```
+#Usage
+
+##Debug Mode
+To start server on port 3000 with debug mode on use
+```
+ NODE_ENV=true npm start
+
+ Response: Thursday, August 11th, 2016, 2:58:00 PM app is running on port: 3000 undefined  
+```
 ## Start Server
-To start the server on port 3000 use
+To start the server on port 3000 without debug mode use
 ```
 npm start
+
+Response: app is running on port: 3000
 ```
 
 ## Root Page
