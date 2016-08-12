@@ -51,19 +51,19 @@ NODE_ENV=true npm start
 ```
 ##Using Debug
 To debug a certain section in your code you have to require
-the util in the file and use `util.debug('Log Message', status_code)`
+the util tool in the file and use `util.debug('Log Message', status_code)`
 
 #Examples
 
 ##Debug in Models
 ```
-	util.debug('All apps have been found ', 200);
+util.debug('All apps have been found ', 200);
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM All apps have been found  200
 ```
 ##Debug in Routes
 ```
- util.debug('GET/v1/apps', req.body, 200);
+util.debug('GET/v1/apps', req.body, 200);
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM GET/v1/apps 200
 ```
