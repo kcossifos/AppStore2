@@ -54,18 +54,18 @@ npm start
 To debug a certain section in your code you have to use util.debug
 
 #Examples
-```
-Debug in Models
 
+#Debug in Models
+```
 exports.all = (err, success) => {
 	db.app.findAll().then(success).catch(err);
 	util.debug('All apps have been found ', 200);
 }
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM All apps have been found  200
-
-Debug in Routes
-
+```
+#Debug in Routes
+```
 router.get('/v1/apps', (req, res) =>{
 	app.all((err) => {
 		res.status(500).json(err);
