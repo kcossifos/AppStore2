@@ -44,16 +44,43 @@ To start server on port 3000 with debug mode on use
 ```
  NODE_ENV=true npm start
 
- Response: Thursday, August 11th, 2016, 2:58:00 PM app is running on port: 3000 undefined  
+ Response: Thursday, August 11th, 2016, 2:58:00 PM app is running on port: 3000  
 ```
-## Start Server
+
+##Start Server
 To start the server on port 3000 without debug mode use
 ```
 npm start
 
-Response: app is running on port: 3000
 ```
+##Using Debug
+To debug a certain section in your code you have to use util.debug
 
+#Examples
+```
+Debug in Models
+
+exports.all = (err, success) => {
+	db.app.findAll().then(success).catch(err);
+	util.debug('All apps have been found ', 200);
+}
+
+Response: Thursday, August 11th, 2016, 10:38:36 PM All apps have been found  200
+
+Debug in Routes
+
+router.get('/v1/apps', (req, res) =>{
+	app.all((err) => {
+		res.status(500).json(err);
+		 util.debug('GET/v1/apps', req.body, 500);
+	}, (data) => {
+		res.status(200).json(data);
+		 util.debug('GET/v1/apps', req.body, 200);
+	});
+});
+
+Response: Thursday, August 11th, 2016, 10:38:36 PM GET/v1/apps 200
+```
 ## Root Page
 
 | Method | URL | Response |

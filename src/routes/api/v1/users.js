@@ -12,7 +12,7 @@ router.delete('/v1/users/:id', (req, res) => {
 		util.debug('DELETE/v1/users/' + req.body.id, req.params.id, 500);
 	}, (data) =>{
 		res.status(200).json(data);
-		util.debug('DELETE/v1/users' + req.body.id, req.params.id, 200);
+		util.debug('DELETE/v1/users/' + req.body.id, req.params.id, 200);
 	});
 });
 
@@ -43,10 +43,10 @@ router.post('/v1/users', (req, res) =>{
 		req.body.id = req.params.id;
 		user.one(req.body, (err) => {
 			res.status(500).json(err);
-			util.debug('GET/v1/users' + req.body.id, req.params.id, 500);
+			util.debug('GET/v1/users/' + req.body.id, req.params.id, 500);
 		}, (data) => {
 			res.status(200).json(data);
-			util.debug('GET/v1/users' + req.body.id, req.params.id, 200);
+			util.debug('GET/v1/users/' + req.body.id, req.params.id, 200);
 		})
 	});
 
