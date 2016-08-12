@@ -47,10 +47,11 @@ npm start
 ##Debug Mode
 To start server on port 3000 with debug mode on use
 ```
- NODE_ENV=true npm start
+NODE_ENV=true npm start
 ```
 ##Using Debug
-To debug a certain section in your code you have to use `util.debug('Log Message', status_code)`
+To debug a certain section in your code you have to require
+the util in the file and use `util.debug('Log Message', status_code)`
 
 #Examples
 
