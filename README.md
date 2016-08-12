@@ -43,15 +43,12 @@ DB_PORT =
 To start server on port 3000 with debug mode on use
 ```
  NODE_ENV=true npm start
-
- Response: Thursday, August 11th, 2016, 2:58:00 PM app is running on port: 3000  
 ```
 
 ##Start Server
 To start the server on port 3000 without debug mode use
 ```
 npm start
-
 ```
 ##Using Debug
 To debug a certain section in your code you have to use util.debug
