@@ -39,19 +39,18 @@ DB_PORT =
 ```
 #Usage
 
-##Debug Mode
-To start server on port 3000 with debug mode on use
-```
- NODE_ENV=true npm start
-```
-
 ##Start Server
 To start the server on port 3000 without debug mode use
 ```
 npm start
 ```
+##Debug Mode
+To start server on port 3000 with debug mode on use
+```
+ NODE_ENV=true npm start
+```
 ##Using Debug
-To debug a certain section in your code you have to use util.debug
+To debug a certain section in your code you have to use `util.debug('Log Message', status_code)`
 
 #Examples
 
