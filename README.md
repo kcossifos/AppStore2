@@ -57,24 +57,13 @@ the util in the file and use `util.debug('Log Message', status_code)`
 
 ##Debug in Models
 ```
-exports.all = (err, success) => {
-	db.app.findAll().then(success).catch(err);
 	util.debug('All apps have been found ', 200);
-}
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM All apps have been found  200
 ```
 ##Debug in Routes
 ```
-router.get('/v1/apps', (req, res) =>{
-	app.all((err) => {
-		res.status(500).json(err);
-		 util.debug('GET/v1/apps', req.body, 500);
-	}, (data) => {
-		res.status(200).json(data);
-		 util.debug('GET/v1/apps', req.body, 200);
-	});
-});
+ util.debug('GET/v1/apps', req.body, 200);
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM GET/v1/apps 200
 ```
