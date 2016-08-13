@@ -1,0 +1,20 @@
+{
+	"env": {
+		"node": true
+	},
+	"extends": "airbnb",
+	 "extends": "eslint-config-airbnb",
+	"plugins": [
+        "react"
+    ],
+	"rules": {
+		"new-cap": 0,
+		"prefer-template": 0,
+		"global-require": 0,
+		"no-console": 0
+	},
+	"globals": {
+		"describe": true,
+		"it": true
+	}
+}

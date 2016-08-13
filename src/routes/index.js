@@ -3,7 +3,6 @@ module.exports = (express) => {
 
 // checks status
   router.get('/status', (req, res) => {
-    console.log('route hit', req.body);
     res.json({
       healthy: true,
     });
@@ -16,5 +15,6 @@ module.exports = (express) => {
 // creates route
   router.use('/api/', require('./api/v1/users')(express));
   router.use('/api/', require('./api/v1/apps')(express));
+
   return router;
 };
