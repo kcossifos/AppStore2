@@ -67,6 +67,43 @@ util.debug('GET/v1/apps', req.body, 200);
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM GET/v1/apps 200
 ```
+
+#Airbnb Style Guide
+This style guide is used to make sure your code is formatted correctly.
+
+##Installing
+```
+To install eslint run this command:
+npm i --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react
+
+Then install linter or eslinter packge for the IDE you are using
+```
+
+##Configuration
+You will need to create a .eslintrc.json file
+```
+{
+    "env": {
+        "node": true
+    },
+    "extends": "airbnb",
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "new-cap": 0,
+        "prefer-template": 0,
+        "global-require": 0
+    },
+    "globals": {
+        "describe": true,
+        "it": true
+    }
+}
+```
+This file will set off error messages with your code. You can also add addition rules.
+For more information on airbnb style guide go to `https://github.com/airbnb/javascript`
+
 ## Root Page
 
 | Method | URL | Response |
