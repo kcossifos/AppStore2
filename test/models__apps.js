@@ -36,8 +36,8 @@ describe('ModelApp', () => {
       util.debug('Error reading app', error);
     }, (oneApp) => {
       expect(oneApp.id).to.be.equal(testApp.id);
-      done();
     });
+    done();
   });
 
   // create an app
@@ -68,7 +68,7 @@ describe('ModelApp', () => {
       util.debug('Unable to delete testapp', err);
     }, (responseFromDestroy) => {
       expect(responseFromDestroy).to.be.equal(1);
-      done();
     });
+    done();
   });
 });
