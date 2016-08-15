@@ -1,69 +1,139 @@
+const request = require('request');
 const expect = require('chai').expect;
-const request = require('supertest');
-const App = require('../src/models/app');
+const util = require('../lib/util');
 
-describe('User Routes', () => {
-  var server;
-  var user;
+describe('RouteUsers', () => {
+  const mockUser1 = {
+    userId: '1',
+    name: 'Kels',
+    age: 24,
+  };
 
-  beforeEach(() => {
-    server = require('../src/server.js');
-  });
+  const mockUser2 = {
+    name: 'Jack',
+    age: 28,
+  };
 
-  afterEach(() => {
-    server.close();
-  });
+  const mockApp1 = {
+    userId: '1',
+    name: 'New App',
+    description: 'Best apps',
+    artAssets: 'www.idk.idk',
+    releaseDate: 'August 8th, 2016',
+  };
+  const host = 'http://localhost:3000';
+  let id1;
 
-  // Test for Multiple Users
-  it('GET /api/v1/users returns multiple users', (done) => {
-    request(server)
-      .get('/api/v1/users')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect((res) => {
-        const users = res.body;
-
-        // Save one single user from the list to test on in later tests
-        this.user = users[0]
-
-        expect(users.length).to.be.above(0)
-      })
-      .end(done)
-  });
-
-  // Test for a single user
-  it('GET /api/v1/users/:id returns an user obj with a id and name property', (done) => {
-    request(server)
-      .get('/api/v1/users/' + this.user.id)
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect((res) => {
-        const user = res.body;
-        expect(user).to.have.property('id')
-        expect(user).to.have.property('name')
-      })
-      .end(done)
-  });
-
-  // Test for the Apps of a Specific user
-  it('GET /api/v1/users/:id/apps should find all apps for a user', (done) => {
-
-    const newApp = { title: 'Best New Test App', description: 'none', userID: this.user.id };
-
-    App.add(newApp, (err) => {
-
-    }, (appData) => {
-      request(server)
-        .get('/api/v1/users/' + this.user.id + '/apps')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          const apps = res.body;
-
-          // Save one single app from the list to test on in later tests
-          expect(apps.length).to.be.above(0)
-        })
-        .end(done)
-      });
+  it('Should be able to add user ' + JSON.stringify(mockUser1), (done) => {
+    const options = {
+      method: 'post',
+      body: mockUser1,
+      json: true,
+      url: host + '/api/v1/users',
+    };
+    request.post(options, (err, res) => {
+      util.debug('Error adding a user', err);
+      expect(res.statusCode).to.be.equal(200);
+      done();
     });
+  });
+
+  it('Should be able to add user ' + JSON.stringify(mockUser2), (done) => {
+    const options = {
+      method: 'post',
+      body: mockUser2,
+      json: true,
+      url: host + '/api/v1/users',
+    };
+    request.post(options, (err, res) => {
+      util.debug('Error adding  a user', err);
+      expect(res.statusCode).to.be.equal(200);
+      done();
+    });
+  });
+
+
+  it('Should be able to get all user', (done) => {
+    const options = {
+      method: 'get',
+      url: host + '/api/v1/users',
+    };
+    request.get(options, (err, res, data) => {
+      util.debug('Error getting all users', err);
+      /* eslint-disable */
+      data = JSON.parse(data);
+      /* eslint-enable */
+      let found = false;
+      for (let t = 0; t < data.length; t++) {
+        if (data[t].name === mockUser1.name) {
+          found = true;
+          id1 = data[t].id;
+        }
+      }
+      expect(found).to.be.equal(true);
+      done();
+    });
+  });
+
+
+  it('Should get user by id', (done) => {
+    const options = {
+      method: 'get',
+      url: host + '/api/v1/users/' + id1,
+    };
+    request.get(options, (err, res, data) => {
+      util.debug('Error getting user by id', err);
+      /* eslint-disable */
+      data = JSON.parse(data);
+      /* eslint-enable */
+      let found = false;
+      found = data.name === mockUser1.name;
+      expect(found).to.be.equal(true);
+      done();
+    });
+  });
+
+  // gets all the apps that a user has
+  it('Should get a user and all their apps', (done) => {
+    const options = {
+      method: 'get',
+      url: host + '/v1/users/' + id1 + '/apps',
+    };
+    request.get(options, (err, res, data) => {
+      util.debug('Error getting user and their apps by Id', err);
+      /* eslint-disable */
+      // data = JSON.parse(data);
+      /* eslint-enable */
+      let found = false;
+      found = mockApp1.userId === mockUser1.userId;
+      expect(found).to.be.equal(true);
+      done();
+    });
+  });
+
+  it('Should be able to update user ' + JSON.stringify(mockUser1), (done) => {
+    const options = {
+      method: 'post',
+      body: mockUser2,
+      json: true,
+      url: host + '/api/v1/users/' + id1,
+    };
+    request.post(options, (err, res) => {
+      util.debug('Error updating a user', err);
+      expect(res.statusCode).to.be.equal(200);
+      done();
+    });
+  });
+
+  it('Should delete user by id', (done) => {
+    const options = {
+      method: 'delete',
+      url: host + '/api/v1/users/' + id1,
+    };
+    request.delete(options, (err, res) => {
+      util.debug('Error deleting a user', err);
+      expect(res.statusCode).to.be.equal(200);
+      done();
+    });
+  });
 });

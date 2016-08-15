@@ -1,114 +1,69 @@
 const expect = require('chai').expect;
-const request = require('supertest');
-const faker = require('faker');
-const User = require('../src/models/user');
+const user = require('../src/models/user');
+const util = require('../lib/util');
 
-describe('User Model', () => {
-  var server;
-  var testUsers;
-  var tempUser;
+let testUser = {};
 
-
-  // Test for all Users
-  it('Gets All', (done) => {
-    User.all(
-      (err) => {
-        throw new Error(err);
-      },
-      (users) => {
-        this.testUsers = users;
-        expect(this.testUsers.length).to.be.above(0);
-        done();
-      }
-    );
+describe('ModelUser', () => {
+  before(() => {
+    const mockUser = {
+      name: 'Kels',
+      age: 24,
+    };
+    user.add(mockUser, (error) => {
+      util.debug('Error creating mock user', error);
+    }, (newDbUser) => {
+      testUser = newDbUser;
+    });
   });
 
-  // Add a User
-  it('Adds a new User', (done) => {
-
-    // Generate a fake User with a random name
-    const fakeUser = { name: faker.name.firstName() };
-
-    // Call user model for adding
-    User.add(fakeUser,
-      (err) => {
-        throw new Error(err);
-      },
-      (user) => {
-
-        // Save the returned data for later use in tests
-        this.tempUser = user.dataValues;
-
-        // User.name returned from model should match user.name supplied
-        expect(user.name).to.be.equal(fakeUser.name);
-        done();
-      }
-    );
+  // read all users
+  it('Should be able to read all users.', (done) => {
+    user.all((error) => {
+      util.debug('Error reading all users', error);
+    }, (allUsers) => {
+      expect(allUsers.length).to.be.above(0);
+      done();
+    });
   });
 
-  // Find a User
-  it('Find a User', (done) => {
-
-    // Generate a fake User with a random name
-    const targetUser = this.testUsers[0];
-
-    // Call user model for finding
-    User.one(targetUser,
-      (err) => {
-        throw new Error(err);
-      },
-      (user) => {
-
-        // User.name returned from model should match user.name supplied
-        expect(user.name).to.be.equal(targetUser.name);
-        done();
-      }
-    );
+  // read one user
+  it('Should be able to read one user', (done) => {
+    user.one(testUser, (error) => {
+      util.debug('Error reading user', error);
+    }, (oneUser) => {
+      expect(oneUser.id).to.be.equal(testUser.id);
+      done();
+    });
   });
 
-  // Update a User
-  it('Update a User', (done) => {
-
-    // Load in the info for an existing user
-    var updateUser = this.tempUser;
-
-    // Generate a new name for hte user
-    updateUser.name = 'Not A Real Name';
-
-    // Call user model for updating
-    User.update(updateUser,
-      (err) => {
-        throw new Error(err);
-      },
-      (user) => {
-        // Save the returned data for later use in tests
-        this.tempUser = user;
-        // User.name returned from model should match user.name supplied
-        expect(user.name).to.be.equal(updateUser.name);
-        done();
-      }
-    );
+  // create a user
+  it('Should be able to create a user.', () => {
+    expect(testUser.id).to.not.be.null;
   });
 
-  // Remove a User
-  it('Remove a User', (done) => {
-
-    // Load in the info for an existing user
-    var removeUser = this.tempUser;
-    removeUser.force = true;
-
-    // Call user model for updating
-    User.remove(removeUser,
-      (err) => {
-        throw new Error(err);
-      },
-      (response) => {
-
-        // if successfully removed a 1 should be returned
-        expect(response).to.be.equal(1);
-        done();
-      }
-    );
+  // update the user with updateInfo
+  it('Should be able to update.', (done) => {
+    const updateInfo = {
+      id: testUser.id,
+      name: 'Chels',
+      age: 22,
+    };
+    user.update(updateInfo, (err) => {
+      util.debug('User failed to update user', err);
+    }, (updatedDbUser) => {
+      expect(updatedDbUser.name).to.be.equal(updateInfo.name);
+      done();
+    });
   });
 
+  // deletes a user
+  it('Should be able to delete user.', (done) => {
+    user.remove(testUser, (err) => {
+      util.debug('Unable to delete user', err);
+    }, (responseFromDestroy) => {
+      expect(responseFromDestroy).to.be.equal(1);
+      done();
+    });
+  });
 });

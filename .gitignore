@@ -7,5 +7,3 @@ node_modules
 out
 build
 coverage
-lib
-.eslintrc.json
