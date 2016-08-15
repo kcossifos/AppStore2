@@ -5,6 +5,7 @@ const util = require('../lib/util');
 
 describe('RouteUsers', () => {
   const mockUser1 = {
+    userId: '1',
     name: 'Kels',
     age: 24,
   };
@@ -12,6 +13,14 @@ describe('RouteUsers', () => {
   const mockUser2 = {
     name: 'Jack',
     age: 28,
+  };
+
+  const mockApp1 = {
+    userId: '1',
+    name: 'New App',
+    description: 'Best apps',
+    artAssets: 'www.idk.idk',
+    releaseDate: 'August 8th, 2016',
   };
   const host = 'http://localhost:3000';
   let id1;
@@ -80,6 +89,24 @@ describe('RouteUsers', () => {
       /* eslint-enable */
       let found = false;
       found = data.name === mockUser1.name;
+      expect(found).to.be.equal(true);
+      done();
+    });
+  });
+
+  // gets all the apps that a user has
+  it('Should get a user and all their apps', (done) => {
+    const options = {
+      method: 'get',
+      url: host + '/v1/users/' + id1 + '/apps',
+    };
+    request.get(options, (err, res, data) => {
+      util.debug('Error getting user and their apps by Id', err);
+      /* eslint-disable */
+      // data = JSON.parse(data);
+      /* eslint-enable */
+      let found = false;
+      found = mockApp1.userId === mockUser1.userId;
       expect(found).to.be.equal(true);
       done();
     });
