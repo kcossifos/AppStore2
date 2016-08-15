@@ -70,6 +70,8 @@ Response: Thursday, August 11th, 2016, 10:38:36 PM GET/v1/apps 200
 #Unit Testing
 Tests you code to make sure there are no errors
 ```
+Make Sure your server is on by using npm start
+
 To run the test use the command mocha:
 mocha
 ```
