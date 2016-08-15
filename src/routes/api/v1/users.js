@@ -72,16 +72,13 @@ module.exports = (express) => {
 
 // Gets the relationship between the user id  and their apps
   router.get('/v1/users/:id/apps', (req, res) => {
-    const reqBody = {
-      id: req.params.id,
-      name: req.body.name,
-    };
+   /* eslint-disable */
+   req.body.id = req.params.id;
+   /* eslint-enable */
     user.one(req.body, (err) => {
       res.status(500).json(err);
-      util.debug('GET/v1/users/:id/apps' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data.apps);
-      util.debug('GET/v1/users/:id/apps' + reqBody, 200);
     });
   });
 

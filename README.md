@@ -67,6 +67,19 @@ util.debug('GET/v1/apps', req.body, 200);
 
 Response: Thursday, August 11th, 2016, 10:38:36 PM GET/v1/apps 200
 ```
+#Unit Testing
+tests you code to make sure there are no errors
+```
+To run the test use the command mocha:
+mocha
+```
+##Code Coverage
+this ensures what part of your code is tested
+```
+To run the command for the code coverage report use:
+
+istanbul cover _mocha
+```
 
 #Airbnb Style Guide
 This style guide is used to make sure your code is formatted correctly.
