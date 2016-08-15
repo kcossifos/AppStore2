@@ -2,7 +2,6 @@ const request = require('request');
 const expect = require('chai').expect;
 const util = require('../lib/util');
 
-
 describe('RouteUsers', () => {
   const mockUser1 = {
     userId: '1',
