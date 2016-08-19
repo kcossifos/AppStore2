@@ -1,5 +1,5 @@
 const db = require('../models/db');
-const util = require('../../lib/util');
+const util = require('kelTool2');
 
 // allows a user to be created
 exports.add = (payload, err, success) => {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "test"
+    "test": "mocha"
   },
   "engines": {
     "node": "v6.2.0",
@@ -33,6 +33,7 @@
     "express": "^4.14.0",
     "format": "^0.2.2",
     "istanbul": "^0.4.4",
+    "kelTool2": "^1.1.2",
     "mocha": "^3.0.1",
     "mysql": "^2.11.1",
     "request": "^2.74.0",

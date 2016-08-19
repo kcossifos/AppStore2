@@ -1,6 +1,6 @@
 const request = require('request');
 const expect = require('chai').expect;
-const util = require('../lib/util');
+const util = require('kelTool2');
 
 describe('RouteUsers', () => {
   const mockUser1 = {

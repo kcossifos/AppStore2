@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const apps = require('../src/models/app');
-const util = require('../lib/util');
+const util = require('kelTool2');
 
 let testApp = {};
 

@@ -1,5 +1,5 @@
 const user = require('../../../models/user');
-const util = require('../../../../lib/util');
+const util = require('kelTool2');
 
 module.exports = (express) => {
   const router = express.Router();
