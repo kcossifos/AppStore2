@@ -9,7 +9,7 @@
   },
   "engines": {
     "node": "v6.2.0",
-    "npm": "v3.8.9"
+    "npm": "3.8.9"
   },
   "repository": {
     "type": "git",
