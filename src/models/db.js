@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 
+// if (!process.env.NODE_ENV)
 require('dotenv').config();
 
 // connects to database
