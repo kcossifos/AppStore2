@@ -5,7 +5,7 @@ const util = require('kelTool2');
 const app = express();
 
 // port used for the app
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
