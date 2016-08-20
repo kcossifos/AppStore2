@@ -4,6 +4,7 @@
   "description": "App API",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
     "test": "mocha"
   },
   "engines": {
