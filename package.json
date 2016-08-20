@@ -2,7 +2,7 @@
   "name": "appstore",
   "version": "1.6.0",
   "description": "App API",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "test": "mocha"
