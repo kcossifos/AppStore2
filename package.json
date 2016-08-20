@@ -4,7 +4,7 @@
   "description": "App API",
   "main": "src/server.js",
   "engines": {
-    "node": "v6.4.0",
+    "node": "6.4.0",
     "npm": "3.10.7"
   },
   "scripts": {
