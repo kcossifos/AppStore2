@@ -96,6 +96,20 @@ You will need to create a .eslintrc.json file
 This file will set off error messages with your code. You can also add addition rules.
 For more information on airbnb style guide go to `https://github.com/airbnb/javascript`
 
+##Workflow
+Process of adding a new feature branch and merging it in github
+```
+1) In your terminal, make sure you're in your git master repository
+2) Then run the command `git checkout -b nameofbranch` to create a new feature branch
+3) Once you make changes in your files you need to push it up to github from your terminal
+4) In order to do so run these commands `git add -A`, git commit -m 'Message Here', git push
+5) To merge your new feature branch into your master branch use the command `git merge <branchname>` and then git push
+4) Make sure you are in your master branch when running this command for it to successfully work
+5) To tag a release you run the command `git tag 1.0.0 1b2e1d63ff`
+6) The 1b2e1d63ff stands for the first 10 characters of the commit id you want to reference with your tag
+7) To create a release you need to push that tag by running the command `git push --tags`
+```
+
 ## Root Page
 
 | Method | URL | Response |
