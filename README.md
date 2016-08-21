@@ -96,7 +96,7 @@ You will need to create a .eslintrc.json file
 This file will set off error messages with your code. You can also add addition rules.
 For more information on airbnb style guide go to `https://github.com/airbnb/javascript`
 
-##Workflow
+#Workflow
 Process of adding a new feature branch and merging it in github
 ```
 1) In your terminal, make sure you're in your git master repository
@@ -109,7 +109,15 @@ Process of adding a new feature branch and merging it in github
 8) The 1b2e1d63ff stands for the first 10 characters of the commit id you want to reference with your tag
 9) To create a release you need to push that tag by running the command `git push --tags`
 ```
-
+#Deployment
+Process of how to deploy your code through Heroku
+```
+1) Login into your heroku account https://id.heroku.com/login
+2) Once you have logged in, click on the app that you were added to as a collaborator  
+3) Go to the deploy tab and try to deploy the branch, if you have an error go to your logs to troubleshoot
+4) You should see two pipelines setup one for staging and one for production
+5) Your staging environment should automatically deploy with CI passing  
+```
 ## Root Page
 
 | Method | URL | Response |

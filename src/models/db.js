@@ -25,9 +25,6 @@ const user = sequelize.define('user', {
 
 // sets up app table in database
 const app = sequelize.define('app', {
-  userId: {
-    type: Sequelize.INTEGER,
-  },
   title: {
     type: Sequelize.STRING,
   },
