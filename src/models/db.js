@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 
+// if (!process.env.NODE_ENV)
 require('dotenv').config();
 
 // connects to database
@@ -24,9 +25,6 @@ const user = sequelize.define('user', {
 
 // sets up app table in database
 const app = sequelize.define('app', {
-  userId: {
-    type: Sequelize.INTEGER,
-  },
   title: {
     type: Sequelize.STRING,
   },
