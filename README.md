@@ -118,6 +118,15 @@ Process of how to deploy your code through Heroku
 4) You should see two pipelines setup one for staging and one for production
 5) Your staging environment should automatically deploy with CI passing  
 ```
+#Increment Version Number
+Automatically increments version number using gulp
+```
+In terminal run command gulp --num= and then major, minor, or patch
+```
+
+## Example
+This command will increment the minor version number
+`gulp --num=minor`
 ## Root Page
 
 | Method | URL | Response |
