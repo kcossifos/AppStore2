@@ -8,10 +8,10 @@ module.exports = (express) => {
   router.get('/v1/apps', (req, res) => {
     app.all((err) => {
       res.status(500).json(err);
-      util.debug('GET/v1/apps', req.body, 500);
+      util.log('GET/v1/apps', req.body, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('GET/v1/apps', req.body, 200);
+      util.log('GET/v1/apps', req.body, 200);
     });
   });
 
@@ -22,10 +22,10 @@ module.exports = (express) => {
     };
     app.one(reqBody, (err) => {
       res.status(500).json(err);
-      util.debug('GET/v1/apps/' + reqBody, 500);
+      util.log('GET/v1/apps/' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('GET/v1/apps/' + reqBody, 200);
+      util.log('GET/v1/apps/' + reqBody, 200);
     });
   });
 
@@ -36,10 +36,10 @@ module.exports = (express) => {
     };
     app.remove(reqBody, (err) => {
       res.status(500).json(err);
-      util.debug('DELETE/v1/apps/' + reqBody, 500);
+      util.log('DELETE/v1/apps/' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('DELETE/v1/apps/' + reqBody, 200);
+      util.log('DELETE/v1/apps/' + reqBody, 200);
     });
   });
 
@@ -55,10 +55,10 @@ module.exports = (express) => {
     };
     app.update(reqBody, (err) => {
       res.status(500).json(err);
-      util.debug('POST/v1/apps/' + reqBody, 500);
+      util.log('POST/v1/apps/' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('POST/v1/apps/' + reqBody, 200);
+      util.log('POST/v1/apps/' + reqBody, 200);
     });
   });
 
@@ -66,10 +66,10 @@ module.exports = (express) => {
   router.post('/v1/apps', (req, res) => {
     app.add(req.body, (err) => {
       res.status(500).json(err);
-      util.debug('POST/v1/apps/', req.body, 500);
+      util.log('POST/v1/apps/', req.body, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('POST/v1/apps/', req.body, 200);
+      util.log('POST/v1/apps/', req.body, 200);
     });
   });
 

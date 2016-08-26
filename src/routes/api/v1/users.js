@@ -11,10 +11,10 @@ module.exports = (express) => {
     };
     user.remove(reqBody, (err) => {
       res.status(500).json(err);
-      util.debug('DELETE/v1/users/' + reqBody, 500);
+      util.log('DELETE/v1/users/' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('DELETE/v1/users/' + reqBody, 200);
+      util.log('DELETE/v1/users/' + reqBody, 200);
     });
   });
 
@@ -22,10 +22,10 @@ module.exports = (express) => {
   router.post('/v1/users', (req, res) => {
     user.add(req.body, (err) => {
       res.status(500).json(err);
-      util.debug('POST/v1/users', req.body, 500);
+      util.log('POST/v1/users', req.body, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('POST/v1/users', req.body, 200);
+      util.log('POST/v1/users', req.body, 200);
     });
   });
 
@@ -33,10 +33,10 @@ module.exports = (express) => {
   router.get('/v1/users', (req, res) => {
     user.all((err) => {
       res.status(500).json(err);
-      util.debug('GET/v1/users', req.body, 500);
+      util.log('GET/v1/users', req.body, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('GET/v1/users', req.body, 200);
+      util.log('GET/v1/users', req.body, 200);
     });
   });
 
@@ -48,10 +48,10 @@ module.exports = (express) => {
     };
     user.one(reqBody, (err) => {
       res.status(500).json(err);
-      util.debug('GET/v1/users/' + reqBody, 500);
+      util.log('GET/v1/users/' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('GET/v1/users/' + reqBody, 200);
+      util.log('GET/v1/users/' + reqBody, 200);
     });
   });
 
@@ -63,10 +63,10 @@ module.exports = (express) => {
     };
     user.update(reqBody, (err) => {
       res.status(500).json(err);
-      util.debug('POST/v1/users' + reqBody, 500);
+      util.log('POST/v1/users' + reqBody, 500);
     }, (data) => {
       res.status(200).json(data);
-      util.debug('POST/v1/users' + reqBody, 200);
+      util.log('POST/v1/users' + reqBody, 200);
     });
   });
 
